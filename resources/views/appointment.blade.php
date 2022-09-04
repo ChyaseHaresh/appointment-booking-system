@@ -12,7 +12,7 @@
         integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.css">
-    <link rel="stylesheet" href="{{asset('css/style.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
 
 </head>
@@ -22,8 +22,8 @@
     <div class="row">
         <nav class="navbar navbar-expand-lg py-0" style="background-color: ;">
             <div class="container-fluid" style="margin-left: 150px ;">
-                <a class="navbar-brand" href="#"><img src="{{asset('images/logo.jpg')}}" alt="" height="80px"
-                        width="200px"></a>
+                <a class="navbar-brand" href="#"><img src="{{ asset('images/logo.jpg') }}" alt=""
+                        height="80px" width="200px"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
                     aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -72,16 +72,30 @@
             </div>
         </nav>
     </div>
+
+    @php
+        use Carbon\Carbon;
+        $date = Carbon::now('+5:45');
+        echo $date->isoFormat('YYYY-MM-DD');
+        $c_date = $date->isoFormat('YYYY-MM-DD');
+        $c_time = $date->isoFormat('H:mm');
+
+    $c_week = $date->isoFormat('ddd, MMM DD');
+
+        $ch_time = $date->addHour()->isoFormat('H:mm');
+    @endphp
+
+
     <div class="container">
         <h2 class="mt-5">Appointment Availability</h2>
         <div class="row">
             <div class="col-md-6 mb-4">
                 <h5>Available days</h5>
                 <select class="form-select mb-3" aria-label="Default select example">
-                    <option selected>Choose a date</option>
-                    <option value="1">sept 2</option>
-                    <option value="2">sept 3</option>
-                    <option value="3">sept 3</option>
+                    <option selected>{{$date->isoFormat('ddd, MMM DD')}}</option>
+                    @for ($i = 0; $i < 6; $i++)
+                        <option value="1">{{$date->addDay()->isoFormat('ddd, MMM DD');}}</option>
+                    @endfor
                 </select>
 
                 <div class="d-grid gap-2 d-md-block">
@@ -102,7 +116,7 @@
                 </div>
             </div>
             <div class="col-md-6">
-                <img src="{{asset('images/appoint.svg')}}" alt="">
+                <img src="{{ asset('images/appoint.svg') }}" alt="">
             </div>
         </div>
         <!-- Modal -->
