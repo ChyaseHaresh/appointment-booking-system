@@ -63,7 +63,7 @@
                         <div class="navdrop dropdown ">
                             <button class="navbtn dropbtn"><i class="fa-solid fa-magnifying-glass"></i>
                                 <div class="navcontent dropdown-content ">
-                                    <p>Search</p>
+                                    <p>Search for course</p>
                                 </div>
                             </button>
                         </div>
