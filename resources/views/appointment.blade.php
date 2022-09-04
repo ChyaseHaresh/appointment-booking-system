@@ -76,11 +76,12 @@
     @php
         use Carbon\Carbon;
         $date = Carbon::now('+5:45');
+        $dato = new Carbon('11:00');
         echo $date->isoFormat('YYYY-MM-DD');
         $c_date = $date->isoFormat('YYYY-MM-DD');
         $c_time = $date->isoFormat('H:mm');
 
-    $c_week = $date->isoFormat('ddd, MMM DD');
+        $c_week = $date->isoFormat('ddd, MMM DD');
 
         $ch_time = $date->addHour()->isoFormat('H:mm');
     @endphp
@@ -92,18 +93,22 @@
             <div class="col-md-6 mb-4">
                 <h5>Available days</h5>
                 <select class="form-select mb-3" aria-label="Default select example">
-                    <option selected>{{$date->isoFormat('ddd, MMM DD')}}</option>
+                    <option selected>{{ $date->isoFormat('ddd, MMM DD') }}</option>
                     @for ($i = 0; $i < 6; $i++)
-                        <option value="1">{{$date->addDay()->isoFormat('ddd, MMM DD');}}</option>
+                        <option value="1">{{ $date->addDay()->isoFormat('ddd, MMM DD') }}</option>
                     @endfor
                 </select>
 
                 <div class="d-grid gap-2 d-md-block">
                     <h5>Available time slots</h5>
+                    <button class="btn btn-primary" type="button" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal">{{ $dato->isoFormat('H:mm') }}</button>
 
-                    <button class="btn btn-primary" type="button" data-bs-toggle="modal"
-                        data-bs-target="#exampleModal"><a class="time" href="">10:00</a></button>
-                    <button class="btn btn-primary" type="button" data-bs-toggle="modal"
+                    @for ($i = 0; $i < 6; $i++)
+                        <button class="btn btn-primary" type="button" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal">{{ $dato->addHour()->isoFormat('H:mm') }}</button>
+                    @endfor
+                    {{-- <button class="btn btn-primary" type="button" data-bs-toggle="modal"
                         data-bs-target="#exampleModal"><a class="time" href="">11:00</a></button>
                     <button class="btn btn-primary" type="button" data-bs-toggle="modal"
                         data-bs-target="#exampleModal"><a class="time" href="">12:00</a></button>
@@ -112,7 +117,7 @@
                     <button class="btn btn-primary" type="button" data-bs-toggle="modal"
                         data-bs-target="#exampleModal"><a class="time" href="">3:00</a></button>
                     <button class="btn btn-primary" type="button" data-bs-toggle="modal"
-                        data-bs-target="#exampleModal"><a class="time" href="">4:00</a></button>
+                        data-bs-target="#exampleModal"><a class="time" href="">4:00</a></button> --}}
                 </div>
             </div>
             <div class="col-md-6">
@@ -120,15 +125,13 @@
             </div>
         </div>
         <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header" style="background-color: #83aef7;">
                         <h5 class="modal-title" id="exampleModalLabel">Appointment with Nepal Education Consultancy
                         </h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                            aria-label="Close"></button>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <p><i class="fa-regular fa-calendar-days "></i> Sunday , 4 Sept 2022</p>
