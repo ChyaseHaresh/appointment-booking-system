@@ -1,5 +1,13 @@
 @extends('layout')
 @section('contents')
+@if(session()->has('message'))
+<div class="sufee-alert alert with-close alert-success text center alert-dismissible fade show">
+    {{session('message')}}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">×</span>
+    </button>
+</div>
+@endif
     @php
         use Carbon\Carbon;
         $date = Carbon::now('+5:45');
@@ -59,7 +67,7 @@
             </div>
         </div>
         <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="exampleModal" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header" style="background-color: #83aef7;">
@@ -77,41 +85,60 @@
                             <i class="fa-solid fa-clock"></i>
                             <p class="mx-2 mb-3" id="modal_time"></p>
                         </div>
-                        <div class="mb-3 row">
-                            <label for="name" class="col-auto col-form-label"><i
-                                    class="fa-solid fa-user"></i></label>Name
-                            <div class="col-sm-9">
-                                <input type="name" class="form-control" id="name"placeholder="Enter your full name">
+                        <form action="{{route('appointment.add')}}" method="POST">
+@csrf
+                            <div class="mb-3 row">
+                                <label for="name" class="col-auto col-form-label"><i
+                                        class="fa-solid fa-user"></i></label>Name
+                                <div class="col-sm-9">
+                                    <input type="name" class="form-control"
+                                        name="name"placeholder="Enter your full name" required>
+                                    @error('name')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                </div>
                             </div>
-                        </div>
-                        <div class="mb-3 row">
-                            <label for="name" class="col-auto col-form-label"><i
-                                    class="fa-solid fa-phone"></i></label>Phone
-                            <div class="col-sm-9">
-                                <input type="phone" class="form-control" id="phone"
-                                    placeholder="Enter your phone number">
+                            <div class="mb-3 row">
+                                <label for="name" class="col-auto col-form-label"><i
+                                        class="fa-solid fa-phone"></i></label>Phone
+                                <div class="col-sm-9">
+                                    <input type="phone" class="form-control" name="phone"
+                                        placeholder="Enter your phone number" required>
+                                        @error('phone')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                </div>
                             </div>
-                        </div>
-                        <div class="mb-3 row">
-                            <label for="name" class="col-auto col-form-label"><i
-                                    class="fa-solid fa-envelope"></i></label>Email
-                            <div class="col-sm-9">
-                                <input type="email" class="form-control" id="email" placeholder="Enter your email">
+                            <div class="mb-3 row">
+                                <label for="name" class="col-auto col-form-label"><i
+                                        class="fa-solid fa-envelope"></i></label>Email
+                                <div class="col-sm-9">
+                                    <input type="email" class="form-control" name="email"
+                                        placeholder="Enter your email" required>
+                                        @error('email')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                </div>
                             </div>
-                        </div>
-                        <div class="mb-3 row">
-                            <label for="name" class="col-auto col-form-label"><i
-                                    class="fa-solid fa-clipboard"></i></label>Description
-                            <div class="col-sm-9">
-                                <textarea class="form-control" id="description" placeholder="Enter appointment description"></textarea>
+                            <div class="mb-3 row">
+                                <label for="name" class="col-auto col-form-label"><i
+                                        class="fa-solid fa-clipboard"></i></label>Description
+                                <div class="col-sm-9">
+                                    <textarea class="form-control" name="description" placeholder="Appointment description(optional)"></textarea>
+                                </div>
                             </div>
-                        </div>
+                            <input type="hidden" name="date" class="dates">
+                            <input type="hidden" name="time" class="a_time">
                     </div>
+                    {{-- <button type="submit" class="btn btn-primary">Place Appointment</button> --}}
+
                     <div class="modal-footer">
 
-                        <button type="button" class="btn btn-primary">Place Appointment</button>
+                        <button type="submit" class="btn btn-primary">Place Appointment</button>
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                     </div>
+                    </form>
+
                 </div>
             </div>
         </div>

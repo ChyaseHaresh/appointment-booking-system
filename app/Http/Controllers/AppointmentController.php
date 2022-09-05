@@ -16,7 +16,30 @@ class AppointmentController extends Controller
     {
         //
     }
+    public function add_appointment_process(Request $request)
+    {
+        $request->validate([
+            'name'=>'required',
+            'phone'=>'required|numeric',
+            'email'=>'required|email',
+        ]);
 
+        $model=new Appointment();
+
+        $model->name=$request->post('name');
+
+
+        $model->phone=$request->post('phone');
+        $model->email=$request->post('email');
+        $model->description=$request->post('description');
+        $model->status= 1;
+        $model->date=$request->post('date');
+        $model->time=$request->post('time');
+        
+        $model->save();
+        $request->session()->flash('message',"Appointment Request Sent Successfully");
+        return redirect('/');
+    }
     /**
      * Show the form for creating a new resource.
      *

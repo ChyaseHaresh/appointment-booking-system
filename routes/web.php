@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AppointmentController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +18,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('appointment');
 });
+
+// Route::post('appointment/add_appointment',[AppointmentController::class,'add_appointment_process'])->name('appointment.add');
+Route::post('appointment/add_appointment',[AppointmentController::class,'add_appointment_process'])->name('appointment.add');

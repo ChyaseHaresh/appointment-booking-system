@@ -144,6 +144,8 @@
         function myFunction(object) {
             let modal_date = document.querySelector('#modal_date');
             let modal_time = document.querySelector('#modal_time');
+            let hidden_date = document.querySelector('.dates');
+            let hidden_time = document.querySelector('.a_time');
             let selected_date = document.querySelector('.date');
             var valuess = selected_date.options[selected_date.selectedIndex].value;
 
@@ -151,8 +153,12 @@
 
             modal_date.textContent = valuess
             modal_time.innerText = selected_time + " (UTC+5:45)"
-            console.log('hello')
+
+            hidden_date.setAttribute('value', valuess);
+            hidden_time.setAttribute('value', selected_time);
+            console.log(selected_time)
         }
+
     </script>
 
 </body>
