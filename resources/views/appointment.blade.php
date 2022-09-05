@@ -92,20 +92,23 @@
         <div class="row">
             <div class="col-md-6 mb-4">
                 <h5>Available days</h5>
-                <select class="form-select mb-3" aria-label="Default select example">
-                    <option selected>{{ $date->isoFormat('ddd, MMM DD') }}</option>
+                <select class="form-select mb-3 date" aria-label="Default select example">
+                    <option value="{{ $date->isoFormat('ddd, MMM DD') }}" selected>{{ $date->isoFormat('ddd, MMM DD') }}
+                    </option>
                     @for ($i = 0; $i < 6; $i++)
-                        <option value="1">{{ $date->addDay()->isoFormat('ddd, MMM DD') }}</option>
+                        <option value="{{ $date->addDay()->isoFormat('ddd, MMM DD') }}">
+                            {{ $date->addDay()->isoFormat('ddd, MMM DD') }}</option>
                     @endfor
                 </select>
 
                 <div class="d-grid gap-2 d-md-block">
                     <h5>Available time slots</h5>
-                    <button class="btn btn-primary" type="button" data-bs-toggle="modal"
+                    <button class="btn btn-primary times" type="button" data-bs-toggle="modal"
                         data-bs-target="#exampleModal">{{ $dato->isoFormat('H:mm') }}</button>
 
                     @for ($i = 0; $i < 6; $i++)
-                        <button class="btn btn-primary" type="button" data-bs-toggle="modal"
+                        <button class="btn btn-primary times" type="button" onclick="myFunction()"
+                            data-bs-toggle="modal"
                             data-bs-target="#exampleModal">{{ $dato->addHour()->isoFormat('H:mm') }}</button>
                     @endfor
                     {{-- <button class="btn btn-primary" type="button" data-bs-toggle="modal"
@@ -240,6 +243,19 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous">
+    </script>
+    {{-- <script src="{{ asset('js/appointment.css') }}"></script> --}}
+    <script>
+        function myFunction() {
+            let selected_date = document.querySelector('.date');
+            var valuess = selected_date.options[selected_date.selectedIndex].value;
+
+            let selected_button = document.querySelector('.times')
+            let selected_time = selected_button.innerText;
+            console.log(valuess)
+            console.log(selected_time)
+            console.log('hello')
+        }
     </script>
 
 </body>
