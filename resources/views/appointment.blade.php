@@ -93,21 +93,25 @@
             <div class="col-md-6 mb-4">
                 <h5>Available days</h5>
                 <select class="form-select mb-3 date" aria-label="Default select example">
-                    <option value="{{ $date->isoFormat('ddd, MMM DD') }}" selected>{{ $date->isoFormat('ddd, MMM DD') }}
+                    <option value="{{ $date->isoFormat('dddd, MMM DD') }}">
+                        {{ $date->isoFormat('dddd, MMM DD') }}
                     </option>
+
+
                     @for ($i = 0; $i < 6; $i++)
-                        <option value="{{ $date->addDay()->isoFormat('ddd, MMM DD') }}">
-                            {{ $date->addDay()->isoFormat('ddd, MMM DD') }}</option>
+                        <option value="{{ $date->addDay()->isoFormat('dddd, MMM DD') }}">
+                            {{ $date->isoFormat('dddd, MMM DD') }}
+                        </option>
                     @endfor
                 </select>
 
                 <div class="d-grid gap-2 d-md-block">
                     <h5>Available time slots</h5>
-                    <button class="btn btn-primary times" type="button" data-bs-toggle="modal"
-                        data-bs-target="#exampleModal">{{ $dato->isoFormat('H:mm') }}</button>
+                    <button class="btn btn-primary times" type="button" onclick="myFunction(this)"
+                        data-bs-toggle="modal" data-bs-target="#exampleModal">{{ $dato->isoFormat('H:mm') }}</button>
 
                     @for ($i = 0; $i < 6; $i++)
-                        <button class="btn btn-primary times" type="button" onclick="myFunction()"
+                        <button class="btn btn-primary times" type="button" onclick="myFunction(this)"
                             data-bs-toggle="modal"
                             data-bs-target="#exampleModal">{{ $dato->addHour()->isoFormat('H:mm') }}</button>
                     @endfor
@@ -137,9 +141,15 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <p><i class="fa-regular fa-calendar-days "></i> Sunday , 4 Sept 2022</p>
-                        <p><i class="fa-solid fa-clock"></i> 06:15 (UTC+05:45)
-                            Start time</p>
+                        <div class="d-flex">
+                            <i class="fa-regular fa-calendar-days "></i>
+                            <p class="mx-2 " id="modal_date"></p>
+                        </div>
+
+                        <div class="d-flex">
+                            <i class="fa-solid fa-clock"></i>
+                            <p class="mx-2 mb-3" id="modal_time"></p>
+                        </div>
                         <div class="mb-3 row">
                             <label for="name" class="col-auto col-form-label"><i
                                     class="fa-solid fa-user"></i></label>Name
@@ -246,14 +256,16 @@
     </script>
     {{-- <script src="{{ asset('js/appointment.css') }}"></script> --}}
     <script>
-        function myFunction() {
+        function myFunction(object) {
+            let modal_date = document.querySelector('#modal_date');
+            let modal_time = document.querySelector('#modal_time');
             let selected_date = document.querySelector('.date');
             var valuess = selected_date.options[selected_date.selectedIndex].value;
 
-            let selected_button = document.querySelector('.times')
-            let selected_time = selected_button.innerText;
-            console.log(valuess)
-            console.log(selected_time)
+            let selected_time = object.innerText;
+
+            modal_date.textContent = valuess
+            modal_time.innerText = selected_time + " (UTC+5:45)"
             console.log('hello')
         }
     </script>
