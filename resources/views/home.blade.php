@@ -47,29 +47,13 @@ Carousel............... -->
             </div>
         </div>
     </div>
-    <!-- Video Modal -->
-    <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                    <!-- 16:9 aspect ratio -->
-                    <div class="embed-responsive embed-responsive-16by9">
-                        <iframe class="embed-responsive-item" src="" id="video" allowscriptaccess="always" allow="autoplay"></iframe>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+
 
 <div class="container-fluid pt-5">
   <div class="container">
       <div class="text-center pb-2">
           <p class="text-primary text-uppercase font-weight-bold">Our Services</p>
-          <h1 class="mb-4">Best Course</h1>
+          <p class="mb-4" style="font-size: 2.5em; background-image: linear-gradient(to right,#a3c2f7,white);">Best Course</p>
       </div>
       <div class="row pb-3">
           <div class="col-lg-3 col-md-6 text-center mb-5">
@@ -148,5 +132,59 @@ Carousel............... -->
   </div>
 </div>
 
+<div class="testimonial">
+    <div class="container"><div class="text-center pb-2">
+      <p class="text-primary text-uppercase font-weight-bold">Our Consumers</p>
+      <p class="mb-4" style="font-size: 2.5em; background-image: linear-gradient(to right,#a3c2f7,white);">Testimonials</p>
+  </div>
+        <div class="row">
+            <div class="col-md-3 mx-auto card ">
+                <i class="fa fa-quote-left"></i>
+                <p>They have got a beautiful collection of plants. It is really amazing.
+                    I love it.
+                </p>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                 </div>
+                 <img src="images/t1.jpg" >
+                 <p class="name">Monika Perk</p>
+            </div>
+            <div class="col-md-3 card mx-auto">
+                <i class="fa fa-quote-left"></i>
+                <p>They have got a beautiful collection of plants. It is really amazing.
+                    I love it.
+                </p>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                 </div>
+                 <img src="images/t2.jpg" >
+                 <p class="name">Kelvin Matt</p>
+            </div>
+            <div class="col-md-3 card  mx-auto">
+                    <i class="fa fa-quote-left"></i>
+                <p>They have got a beautiful collection of plants. It is really amazing.
+                    I love it.
+                </p>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                 </div>
+                 <img src="images/t3.jpg" >
+                 <p class="name">Merina Sea</p>
+            </div>
+        </div>
+    </div>
+  </div>
 
 @endsection
