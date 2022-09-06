@@ -1,12 +1,11 @@
 @extends('layout')
 @section('contents')
 @if(session()->has('message'))
-<div class="sufee-alert alert with-close alert-success text center alert-dismissible fade show">
-    {{session('message')}}
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">×</span>
-    </button>
-</div>
+
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>Congrats!</strong>     {{session('message')}}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
 @endif
     @php
         use Carbon\Carbon;
