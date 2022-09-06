@@ -22,7 +22,7 @@
 
 
     <div class="container">
-        <h2 class="mt-5">Appointment Availability</h2>
+        <h2 class="mt-5">Appointment Availability cHANGE</h2>
         <div class="row">
             <div class="col-md-6 mb-4">
                 <h5>Available days</h5>
