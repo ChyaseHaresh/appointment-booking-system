@@ -1,0 +1,10 @@
+.sidebar ul li a{
+    color: white;
+}
+.navbar{
+    height: 4em;
+}
+
+.sidebar{
+    height: 100vh;
+}
