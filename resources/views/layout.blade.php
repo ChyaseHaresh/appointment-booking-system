@@ -31,7 +31,10 @@
                 <ul class="nav mx-auto navbar-nav">
                     <!-- Home dropdown -->
                  <li> <div class="navdrop dropdown ">
-                      <button class="navbtn dropbtn ">Home</button>
+
+                      <a href="{{url('/')}}">
+                        <button class="navbtn dropbtn ">Home</button>
+                      </a>
                 </div></li>
                 <li> <div class="navdrop dropdown ">
                       <button class="navbtn dropbtn ">About Us</button>
@@ -58,7 +61,7 @@
                     </button>
                     </div>
               <div>
-              <a href="appointment.html" class="btn btn-primary mt-2 px-4 d-none d-lg-block">Book an appointment</a>
+              <a href="{{url('appointment')}}" class="btn btn-primary mt-2 px-4 d-none d-lg-block">Book an appointment</a>
           </div>
             </div>
           </nav>
