@@ -33,7 +33,7 @@
         </button>
     </div>
 
-    <div class="container-fluid py-5">
+    <<<<<<< HEAD <div class="container-fluid py-5">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-5 pb-4 pb-lg-0">
@@ -74,88 +74,113 @@
                 </div>
             </div>
         </div>
-    </div>
-
-    <div class="container-fluid pt-5">
-        <div class="container">
-            <div class="text-center pb-2">
-                <p class="text-primary text-uppercase font-weight-bold">Our Services</p>
-                <h1 class="mb-4">Best Course</h1>
-            </div>
-            <div class="row pb-3">
-                <div class="col-lg-3 col-md-6 text-center mb-5">
-                    <div class="d-flex align-items-center justify-content-center  mb-4 p-4">
-                        <img src="images/Arts-Humanities-course-300x300.png" class="" alt="">
-
-                    </div>
-                    <p class="text-dark font-weight-medium m-0">Art Humanities</p>
-                    <p>Diam amet eos at no eos sit lorem, amet rebum ipsum clita stet diam sea est diam</p>
-                    <a class="border-bottom text-decoration-none" href="">Read More</a>
-                </div>
-                <div class="col-lg-3 col-md-6 text-center mb-5">
-                    <div class="d-flex align-items-center justify-content-center mb-4 p-4">
-                        <img src="images/Business-course-300x300.png" alt="">
-
-                    </div>
-                    <p class=" font-weight-medium m-0">Business</p>
-                    <p>Diam amet eos at no eos sit lorem, amet rebum ipsum clita stet diam sea est diam</p>
-                    <a class="border-bottom text-decoration-none" href="">Read More</a>
-                </div>
-                <div class="col-lg-3 col-md-6 text-center mb-5">
-                    <div class="d-flex align-items-center justify-content-center  mb-4 p-4">
-                        <img src="images/Computer-IT-Course-300x300.png" alt="">
-
-                    </div>
-                    <p class=" font-weight-medium m-0">Computer</p>
-                    <p>Diam amet eos at no eos sit lorem, amet rebum ipsum clita stet diam sea est diam</p>
-                    <a class="border-bottom text-decoration-none" href="">Read More</a>
-                </div>
-                <div class="col-lg-3 col-md-6 text-center mb-5">
-                    <div class="d-flex align-items-center justify-content-center  mb-4 p-4">
-                        <img src="images/Hospitality-management-courses-300x300.png" alt="">
-
-                    </div>
-                    <p class=" font-weight-medium m-0">Hospitality management</p>
-                    <p>Diam amet eos at no eos sit lorem, amet rebum ipsum clita stet diam sea est diam</p>
-                    <a class="border-bottom text-decoration-none" href="">Read More</a>
-                </div>
-                <div class="col-lg-3 col-md-6 text-center mb-5">
-                    <div class="d-flex align-items-center justify-content-center  mb-4 p-4">
-                        <img src="images/Law-and-Legal-Studies-courses-300x300.png" alt="">
-
-                    </div>
-                    <p class=" font-weight-medium m-0">Law nd Legal Studies</p>
-                    <p>Diam amet eos at no eos sit lorem, amet rebum ipsum clita stet diam sea est diam</p>
-                    <a class="border-bottom text-decoration-none" href="">Read More</a>
-                </div>
-                <div class="col-lg-3 col-md-6 text-center mb-5">
-                    <div class="d-flex align-items-center justify-content-center  mb-4 p-4">
-                        <img src="images/Nursing-courses-300x300.png" alt="">
-
-                    </div>
-                    <p class=" font-weight-medium m-0">Nursing</p>
-                    <p>Diam amet eos at no eos sit lorem, amet rebum ipsum clita stet diam sea est diam</p>
-                    <a class="border-bottom text-decoration-none" href="">Read More</a>
-                </div>
-                <div class="col-lg-3 col-md-6 text-center mb-5">
-                    <div class="d-flex align-items-center justify-content-center  mb-4 p-4">
-                        <img src="images/ICONSArtboard-7-300x300.png" alt="">
-
-                    </div>
-                    <p class=" font-weight-medium m-0">Health and Environment</p>
-                    <p>Diam amet eos at no eos sit lorem, amet rebum ipsum clita stet diam sea est diam</p>
-                    <a class="border-bottom text-decoration-none" href="">Read More</a>
-                </div>
-                <div class="col-lg-3 col-md-6 text-center mb-5">
-                    <div class="d-flex align-items-center justify-content-center  mb-4 p-4">
-                        <img src="images/Ielts-300x300.png" alt="">
-
-                    </div>
-                    <p class=" font-weight-medium m-0">Management</p>
-                    <p>Diam amet eos at no eos sit lorem, amet rebum ipsum clita stet diam sea est diam</p>
-                    <a class="border-bottom text-decoration-none" href="">Read More</a>
-                </div>
-            </div>
         </div>
-    </div>
-@endsection
+        =======
+
+        <div class="container-fluid pt-5">
+            <div class="container">
+                <div class="text-center pb-2">
+                    <p class="text-primary text-uppercase font-weight-bold">Our Services</p>
+                    <p class="mb-4" style="font-size: 2.5em; background-image: linear-gradient(to right,#a3c2f7,white);">
+                        Best Course</p>
+                </div>
+                <div class="row pb-3">
+                    <div class="col-lg-3 col-md-6 text-center mb-5">
+                        <div class="d-flex align-items-center justify-content-center  mb-4 p-4">
+                            <img src="images/Arts-Humanities-course-300x300.png" class="" alt="">
+
+                        </div>
+                        <p class="text-dark font-weight-medium m-0">Art Humanities</p>
+                        <p>Diam amet eos at no eos sit lorem, amet rebum ipsum clita stet diam sea est diam</p>
+                        <a class="border-bottom text-decoration-none" href="">Read More</a>
+                    </div>
+                    <div class="col-lg-3 col-md-6 text-center mb-5">
+                        <div class="d-flex align-items-center justify-content-center mb-4 p-4">
+                            <img src="images/Business-course-300x300.png" alt="">
+
+                        </div>
+                        <p class=" font-weight-medium m-0">Business</p>
+                        <p>Diam amet eos at no eos sit lorem, amet rebum ipsum clita stet diam sea est diam</p>
+                        <a class="border-bottom text-decoration-none" href="">Read More</a>
+                    </div>
+                    <div class="col-lg-3 col-md-6 text-center mb-5">
+                        <div class="d-flex align-items-center justify-content-center  mb-4 p-4">
+                            <img src="images/Computer-IT-Course-300x300.png" alt="">
+
+                        </div>
+                        <p class=" font-weight-medium m-0">Computer</p>
+                        <p>Diam amet eos at no eos sit lorem, amet rebum ipsum clita stet diam sea est diam</p>
+                        <a class="border-bottom text-decoration-none" href="">Read More</a>
+                    </div>
+                    <div class="col-lg-3 col-md-6 text-center mb-5">
+                        <div class="d-flex align-items-center justify-content-center  mb-4 p-4">
+                            <img src="images/Hospitality-management-courses-300x300.png" alt="">
+
+                        </div>
+                        <p class=" font-weight-medium m-0">Hospitality management</p>
+                        <p>Diam amet eos at no eos sit lorem, amet rebum ipsum clita stet diam sea est diam</p>
+                        <a class="border-bottom text-decoration-none" href="">Read More</a>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="testimonial">
+                <div class="container">
+                    <div class="text-center pb-2">
+                        <p class="text-primary text-uppercase font-weight-bold">Our Consumers</p>
+                        <p class="mb-4"
+                            style="font-size: 2.5em; background-image: linear-gradient(to right,#a3c2f7,white);">
+                            Testimonials</p>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3 mx-auto card ">
+                            <i class="fa fa-quote-left"></i>
+                            <p>They have got a beautiful collection of plants. It is really amazing.
+                                I love it.
+                            </p>
+                            <div class="rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
+                            <img src="images/t1.jpg">
+                            <p class="name">Monika Perk</p>
+                        </div>
+                        <div class="col-md-3 card mx-auto">
+                            <i class="fa fa-quote-left"></i>
+                            <p>They have got a beautiful collection of plants. It is really amazing.
+                                I love it.
+                            </p>
+                            <div class="rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
+                            <img src="images/t2.jpg">
+                            <p class="name">Kelvin Matt</p>
+                        </div>
+                        <div class="col-md-3 card  mx-auto">
+                            <i class="fa fa-quote-left"></i>
+                            <p>They have got a beautiful collection of plants. It is really amazing.
+                                I love it.
+                            </p>
+                            <div class="rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
+                            <img src="images/t3.jpg">
+                            <p class="name">Merina Sea</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        @endsection

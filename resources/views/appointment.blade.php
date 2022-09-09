@@ -22,10 +22,10 @@
 
 
     <div class="container">
-        <h2 class="mt-5">Appointment Availability</h2>
+        <h2 class="mt-5 p-4" style="font-size: 2.5em; background-image: linear-gradient(to right,#a3c2f7,white);">Appointment Availability</h2>
         <div class="row">
             <div class="col-md-6 mb-4">
-                <h5>Available days</h5>
+                <h5 class="p-1 mb-2" style="font-size: 1.5em; background-image: linear-gradient(to left,#a3c2f7,white);">Available days</h5>
                 <select class="form-select mb-3 date" aria-label="Default select example">
                     <option value="{{ $date->isoFormat('dddd, MMM DD') }}">
                         {{ $date->isoFormat('dddd, MMM DD') }}
@@ -40,7 +40,8 @@
                 </select>
 
                 <div class="d-grid gap-2 d-md-block">
-                    <h5>Available time slots</h5>
+                    <h5 class="p-1 mb-2"style="font-size: 1.5em; background-image: linear-gradient(to left,#a3c2f7,white);">Available time slots</h5>
+                    <div class="container">
                     <button class="btn btn-primary times" type="button" onclick="myFunction(this)" data-bs-toggle="modal"
                         data-bs-target="#exampleModal">{{ $dato->isoFormat('H:mm') }}</button>
 
@@ -48,6 +49,7 @@
                         <button class="btn btn-primary times" type="button" onclick="myFunction(this)"
                             data-bs-toggle="modal"
                             data-bs-target="#exampleModal">{{ $dato->addHour()->isoFormat('H:mm') }}</button>
+                    </div>
                     @endfor
                     {{-- <button class="btn btn-primary" type="button" data-bs-toggle="modal"
                 data-bs-target="#exampleModal"><a class="time" href="">11:00</a></button>
