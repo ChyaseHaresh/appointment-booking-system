@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Appointment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class AppointmentController extends Controller
 {
@@ -16,6 +18,47 @@ class AppointmentController extends Controller
     {
     return view('appointment');
     }
+
+    public function getState(Request $request){
+        $dato = new Carbon('11:00');
+
+		$cid=$request->post('selected_date');
+		$state=Appointment::all();
+
+
+        if ($state->time->isoFormat('H:mm')==$dato->isoFormat('H:mm')) {
+            $html= '<button class="btn btn-primary times" type="button" onclick="myFunction(this)"
+            data-bs-toggle="modal" data-bs-target="#exampleModal">'.$dato->isoFormat('H:mm').'</button>';
+        } else {
+            $html= '<button class="btn btn-primary disabled times" type="button" onclick="myFunction(this)"
+            data-bs-toggle="modal" data-bs-target="#exampleModal">'.$dato->isoFormat('H:mm').'</button>';
+        }
+
+
+        // '<option value="">Select State</option>';
+		foreach($state as $list){
+
+            if ($list->time->isoFormat('H:mm')==$dato->isoFormat('H:mm')) {
+                $html.=
+                // '<option value="'.$list->id.'">'.$list->state.'</option>';
+
+                '<button class="btn btn-primary times" type="button" onclick="myFunction(this)"
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModal">'.$dato->addHour()->isoFormat('H:mm').'</button>';
+            } else {
+                $html.=
+                // '<option value="'.$list->id.'">'.$list->state.'</option>';
+
+                '<button class="btn btn-primary disabled times" type="button" onclick="myFunction(this)"
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModal">'.$dato->addHour()->isoFormat('H:mm').'</button>';
+            }
+
+
+		}
+		echo $html;
+	}
+
     public function add_appointment_process(Request $request)
     {
         $request->validate([
@@ -33,12 +76,52 @@ class AppointmentController extends Controller
         $model->email=$request->post('email');
         $model->description=$request->post('description');
         $model->status= 1;
+        $model->confirmation= 0;
         $model->date=$request->post('date');
         $model->time=$request->post('time');
 
         $model->save();
-        $request->session()->flash('message',"Appointment Request Sent Successfully");
-        return redirect('/');
+        $request->session()->flash('message',"Appointment Request Sent Successfully. You will be notified via email.");
+        return redirect('/appointment');
+    }
+
+    public function fetchStates(Request $request, $country_id = null) {
+        $dato = new Carbon('10:00');
+        $states = Appointment::where(['date'=>$country_id])->get();
+        // dd($states);
+        // die;
+
+        // if (Carbon::parse($states[0]->time)->isoFormat('H:mm')==$dato->isoFormat('H:mm')) {
+        //     $html= '<button class="btn btn-danger disabled times" type="button" onclick="myFunction(this)"
+        //     data-bs-toggle="modal" data-bs-target="#exampleModal">'.$dato->isoFormat('H:mm').'</button>';
+        // } else {
+        //     $html= '<button class="btn btn-success times" type="button" onclick="myFunction(this)"
+        //     data-bs-toggle="modal" data-bs-target="#exampleModal">'.$dato->isoFormat('H:mm').'</button>';
+        // }
+$html="";
+        for ($i=0; $i < 7; $i++) {
+
+        // foreach($states as $list){
+            for ($j=0; $j < count($states); $j++) {
+                if (Carbon::parse($states[$j]->time)->subHour()->isoFormat('H:mm')==$dato->isoFormat('H:mm')) {
+                    $html.=
+                    '<button class="btn btn-danger disabled times" type="button" onclick="myFunction(this)"
+                    data-bs-toggle="modal"
+                    data-bs-target="#exampleModal">'.$dato->addHour()->isoFormat('H:mm').'</button>';
+                }
+
+            }
+            $html.=
+            '<button class="btn btn-success times" type="button" onclick="myFunction(this)"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal">'.$dato->addHour()->isoFormat('H:mm').'</button>';
+		//}
+        }
+		// return $html;
+        return response()->json([
+            'status' => 1,
+            'states' => $html
+        ]);
     }
     /**
      * Show the form for creating a new resource.

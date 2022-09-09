@@ -18,8 +18,10 @@ return new class extends Migration
             $table->string('name',100);
             $table->bigInteger('phone');
             $table->string('email');
-            $table->longText('description')->nullable;
+            $table->string('councelor_assigned')->nullable();
+            $table->longText('description')->nullable();
             $table->tinyInteger('status');
+            $table->tinyInteger('confirmation');
             $table->string('date');
             $table->time('time');
             $table->timestamps();
