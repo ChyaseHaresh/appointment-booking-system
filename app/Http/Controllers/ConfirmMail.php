@@ -35,6 +35,7 @@ class ConfirmMail extends Controller
 
         $model=Appointment::find($id);
         $model->confirmation=1;
+        $model->counselor=$counselor;
         $model->save();
     return redirect('admin/appointments');
     }
