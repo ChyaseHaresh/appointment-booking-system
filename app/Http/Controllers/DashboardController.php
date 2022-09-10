@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Appointment;
 
 class DashboardController extends Controller
 {
@@ -13,7 +14,9 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        //
+        $result['data']=Appointment::where('confirmation', 1)->orderBy('date', 'asc')->get();
+
+        return view('admin.dashboard', $result);
     }
 
     /**

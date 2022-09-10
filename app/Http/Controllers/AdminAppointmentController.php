@@ -16,8 +16,6 @@ class AdminAppointmentController extends Controller
     public function index()
     {
         $result2['data']=Appointment::all();
-        // dd($result2['data']);
-        // die;
         $result2['selection']="selected";
         $result2['selections']="";
         return view('admin.appointmets',$result2);

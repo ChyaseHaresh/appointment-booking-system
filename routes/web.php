@@ -6,6 +6,7 @@ use App\Http\Controllers\StaffController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminAppointmentController;
 use App\Http\Controllers\ConfirmMail;
+use App\Http\Controllers\DashboardController;
 
 
 /*
@@ -27,7 +28,8 @@ Route::get('/', function () {
 
 
 // Route::post('appointment/add_appointment',[AppointmentController::class,'add_appointment_process'])->name('appointment.add');
-Route::get('admin/dashboard',[AdminController::class,'dashboard']);
+Route::get('/admin',[AdminController::class,'index']);
+Route::get('admin/dashboard',[DashboardController::class,'index']);
 Route::get('admin/appointments',[AdminAppointmentController::class,'index']);
 Route::get('admin/appointments/{date}',[AdminAppointmentController::class,'show']);
 
