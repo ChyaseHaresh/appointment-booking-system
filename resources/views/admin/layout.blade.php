@@ -105,7 +105,19 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"
         integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous">
     </script>
-    <script src="dashboard.js"></script>
+    <script>
+        let selected_day=document.querySelector('#full_dates')
+        selected_day.addEventListener('change',()=>{
+            let full_date= selected_day.value
+            console.log(full_date)
+            if (full_date!=="") {
+                window.location=`{{url('admin/appointments/`+full_date+`')}}`
+            } else {
+                window.location=`{{url('admin/appointments/')}}`
+
+            }
+        })
+    </script>
 </body>
 
 </html>

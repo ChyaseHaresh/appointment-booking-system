@@ -16,6 +16,10 @@ class AdminAppointmentController extends Controller
     public function index()
     {
         $result2['data']=Appointment::all();
+        // dd($result2['data']);
+        // die;
+        $result2['selection']="selected";
+        $result2['selections']="";
         return view('admin.appointmets',$result2);
     }
 
@@ -46,9 +50,14 @@ class AdminAppointmentController extends Controller
      * @param  \App\Models\AdminAppointment  $adminAppointment
      * @return \Illuminate\Http\Response
      */
-    public function show(AdminAppointment $adminAppointment)
+    public function show(AdminAppointment $adminAppointment,$date)
     {
-        //
+        $result2['data']=Appointment::where('date', $date)->get();
+        $result2['selections']="selected";
+        $result2['selection']="";
+        $result2['c_date']="";
+        $c_date['c_date']=$date;
+        return view('admin.appointmets',$result2, $c_date);
     }
 
     /**

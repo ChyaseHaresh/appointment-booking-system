@@ -29,6 +29,7 @@ Route::get('/', function () {
 // Route::post('appointment/add_appointment',[AppointmentController::class,'add_appointment_process'])->name('appointment.add');
 Route::get('admin/dashboard',[AdminController::class,'dashboard']);
 Route::get('admin/appointments',[AdminAppointmentController::class,'index']);
+Route::get('admin/appointments/{date}',[AdminAppointmentController::class,'show']);
 
 Route::get('admin/appointments/confirmatio/{mail}/{id}',[ConfirmMail::class,'index']);
 
