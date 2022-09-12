@@ -40,10 +40,17 @@
                         </option>
                     @endfor
                 </select>
-
+                <h5 class="p-1 mb-2" style="font-size: 1.5em; background-image: linear-gradient(to left,#a3c2f7,white);">
+                    Select Counselor</h5>
+                    <select class="form-select" aria-label="Default select example" id="select_counselor" name="name" required>
+                        <option>Select the Counselor</option>
+                        @foreach ($data2 as $list2)
+                            <option value="{{ $list2->id }}">{{ $list2->name }}</option>
+                        @endforeach
+                    </select>
                 <div class="d-grid gap-2 d-md-block">
                     <h5 class="p-1 mb-2"style="font-size: 1.5em; background-image: linear-gradient(to left,#a3c2f7,white);">
-                        Available time slots</h5>
+                        Available time</h5>
                     <div class="container" id="available_slots">
 
                         {{-- <button class="btn btn-primary times" type="button" onclick="myFunction(this)"

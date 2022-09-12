@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Timing;
+use App\Models\Staff;
 use Illuminate\Http\Request;
 
 class TimingController extends Controller
@@ -14,7 +15,10 @@ class TimingController extends Controller
      */
     public function index()
     {
-        //
+        $result['data']=Staff::all();
+        $result2['data2']=Timing::all();
+
+        return view('admin.time_slots', $result, $result2);
     }
 
     /**
@@ -35,7 +39,22 @@ class TimingController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name'=>'required',
+        ]);
+
+        $model=new Timing();
+
+        $model->staff_id=$request->post('name');
+        $model->sdate=$request->post('sdate');
+        $model->stime=$request->post('stime');
+        $model->edate=$request->post('edate');
+        $model->etime=$request->post('etime');
+        $model->status=1;
+
+        $model->save();
+        $request->session()->flash('message',"Staff Added Successfully");
+        return redirect('admin/time_slots');
     }
 
     /**
@@ -55,9 +74,13 @@ class TimingController extends Controller
      * @param  \App\Models\Timing  $timing
      * @return \Illuminate\Http\Response
      */
-    public function edit(Timing $timing)
+    public function edit( $status, $id)
     {
-        //
+        $model=Timing::find($id);
+        $model->status=$status;
+        $model->save();
+        // $request->session()->flash('message','Category status updated');
+        return redirect('admin/time_slots');
     }
 
     /**

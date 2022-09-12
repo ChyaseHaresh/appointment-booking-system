@@ -1,0 +1,31 @@
+
+
+  input[type="number"] {
+    width: 100px;
+  }
+
+  input + span {
+    padding-right: 30px;
+  }
+
+  .borders{
+    border: 2px solid red;
+}
+.validitys{
+    color: red;
+}
+
+  input:invalid + span::after {
+
+    color: red;
+    position: absolute;
+    content: "❌ Invalid Timing!";
+    padding-left: 5px;
+  }
+
+
+  input:valid + span::after {
+    position: absolute;
+    content: "✅ Valid!";
+    padding-left: 5px;
+  }

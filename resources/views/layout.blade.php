@@ -168,17 +168,16 @@
         });
 
         $(document).ready(function() {
-            $("#select_date").change(function() {
-                var country_id = $(this).val();
+            $("#select_counselor").change(function() {
+                var counselor_id = $(this).val();
+                var sdate = $('#select_date').val();
 
-                if (country_id == "") {
-                    var country_id = 0;
-                }
-                let a = '{{ url('/appointment/getDate') }}/' + country_id;
-                console.log(a);
+
+                let a = '{{ url('/appointment/getDate') }}/' + counselor_id;
+                console.log(sdate);
                 $.ajax({
 
-                    url: '{{ url('/appointment/getDate') }}/' + country_id,
+                    url: '{{ url('/appointment/getDate') }}/' + counselor_id+'/'+sdate,
                     type: 'post',
                     dataType: 'json',
                     success: function(response) {
@@ -217,7 +216,7 @@
         function call_time_slots(){
             let modal_date = document.querySelector('#modal_date').value;
 
-            location.href="/appointment/getDate/"+modal_date 
+            location.href="/appointment/getDate/"+modal_date
         }
         function myFunction(object) {
             let modal_date = document.querySelector('#modal_date');

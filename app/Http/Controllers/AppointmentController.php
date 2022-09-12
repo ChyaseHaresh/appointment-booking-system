@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Appointment;
+use App\Models\Staff;
+use App\Models\Timing;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
@@ -16,7 +18,8 @@ class AppointmentController extends Controller
      */
     public function index()
     {
-    return view('appointment');
+        $result2['data2']=Staff::all();
+    return view('appointment', $result2);
     }
 
     public function getState(Request $request){
@@ -77,6 +80,7 @@ class AppointmentController extends Controller
         $model->description=$request->post('description');
         $model->status= 1;
         $model->confirmation= 0;
+        $model->counselor_assigned= $request->post('counselor');
         $model->date=$request->post('date');
         $model->time=$request->post('time');
 
@@ -85,9 +89,9 @@ class AppointmentController extends Controller
         return redirect('/appointment');
     }
 
-    public function fetchStates(Request $request, $country_id = null) {
+    public function fetchStates(Request $request, $counselor_id = null, $sdate) {
         $dato = new Carbon('10:00');
-        $states = Appointment::where(['date'=>$country_id])->get();
+        $states = Timing::where(['edate'=>$sdate])->where(['staff_id'=>$counselor_id])->get();
         // dd($states);
         // die;
 
@@ -99,24 +103,40 @@ class AppointmentController extends Controller
         //     data-bs-toggle="modal" data-bs-target="#exampleModal">'.$dato->isoFormat('H:mm').'</button>';
         // }
 $html="";
-        for ($i=0; $i < 7; $i++) {
+        // for ($i=0; $i < 7; $i++) {
 
         // foreach($states as $list){
-            for ($j=0; $j < count($states); $j++) {
-                if (Carbon::parse($states[$j]->time)->subHour()->isoFormat('H:mm')==$dato->isoFormat('H:mm')) {
-                    $html.=
-                    '<button class="btn btn-danger disabled times" type="button" onclick="myFunction(this)"
-                    data-bs-toggle="modal"
-                    data-bs-target="#exampleModal">'.$dato->addHour()->isoFormat('H:mm').'</button>';
-                }
+            if (!$states->isEmpty()) {
+                for ($j=0; $j < count($states); $j++) {
+                    // if (Carbon::parse($states[$j]->time)->subHour()->isoFormat('H:mm')==$dato->isoFormat('H:mm')) {
+                        if ($states[$j]->edate==$sdate && $states[$j]->status==0) {
+                            $html.=
+                            '<button class="btn btn-info times" type="button" onclick="myFunction(this)"
+                            data-bs-toggle="modal"
+                            data-bs-target="#exampleModal">'.Carbon::parse($states[$j]->stime)->isoFormat('h:mm A').' - '.Carbon::parse($states[$j]->etime)->isoFormat('h:mm A').'</button>';
+                        }
+                        else {
+                            $html.=
+                            '<button class="btn btn-danger  times" type="button" onclick="myFunction(this)"
+                            data-bs-toggle="modal"
+                            data-bs-target="#exampleModal" disabled>'.Carbon::parse($states[$j]->stime)->isoFormat('h:mm A').' - '.Carbon::parse($states[$j]->etime)->isoFormat('h:mm A').'</button>';
+                        }
 
+                    // }
+
+                }
             }
-            $html.=
-            '<button class="btn btn-success times" type="button" onclick="myFunction(this)"
-            data-bs-toggle="modal"
-            data-bs-target="#exampleModal">'.$dato->addHour()->isoFormat('H:mm').'</button>';
-		//}
-        }
+            else {
+                $html.='
+                <span>No dates found...</span>
+                ';
+            }
+        //     $html.=
+        //     '<button class="btn btn-success times" type="button" onclick="myFunction(this)"
+        //     data-bs-toggle="modal"
+        //     data-bs-target="#exampleModal">'.$dato->addHour()->isoFormat('H:mm').'</button>';
+		// //}
+        // }
 		// return $html;
         return response()->json([
             'status' => 1,

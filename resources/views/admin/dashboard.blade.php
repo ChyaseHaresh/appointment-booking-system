@@ -39,22 +39,9 @@
                                 <td>{{ $list->phone }}</td>
                                 <td>{{ $list->email }}</td>
                                 <td>{{ $list->date }}</td>
+                                <td>{{ $list->time }}</td>
 
-                                <td>
-                                    @php
-                                        $dato = new Carbon($list->time);
-                                        $ch_time = $dato->isoFormat('h:mm A');
 
-                                    @endphp
-                                    {{ $ch_time }}</td>
-                                    <td>
-                                        {{Carbon::parse($list->time)->diffForHumans($now->isoFormat('H:mm:ss'))}}
-                                    </td>
-                                    <td>
-                                        <a href="#">
-                                            <button type="button" class="btn btn-outline-dark">Add Notes</button>
-                                        </a>
-                                    </td>
                                 {{-- <td>
             @if ($list->status == 1)
                 <a
@@ -83,17 +70,18 @@
                                 <td>{{ $list->phone }}</td>
                                 <td>{{ $list->email }}</td>
                                 <td>{{ $list->date }}</td>
+                                <td>{{ $list->time }}</td>
 
-                                <td>
+                                {{-- <td>
                                     @php
                                         $dato = new Carbon($list->time);
                                         $ch_time = $dato->isoFormat('h:mm A');
 
                                     @endphp
-                                    {{ $ch_time }}</td>
-                                    <td>
+                                    {{ $ch_time }}</td> --}}
+                                    {{-- <td>
                                         {{Carbon::parse($list->date.$list->time)->diffForHumans($now)}}
-                                    </td>
+                                    </td> --}}
                                 {{-- <td>
             @if ($list->status == 1)
                 <a
@@ -123,16 +111,10 @@
                                 <td>{{ $list->email }}</td>
                                 <td>{{ $list->date }}</td>
 
-                                <td>
-                                    @php
-                                        $dato = new Carbon($list->time);
-                                        $ch_time = $dato->isoFormat('h:mm A');
-
-                                    @endphp
-                                    {{ $ch_time }}</td>
-                                    <td>
+                                <td>{{$list->time}}</td>
+                                    {{-- <td>
                                         {{Carbon::parse($list->date)->diffForHumans($now)}}
-                                    </td>
+                                    </td> --}}
                                 {{-- <td>
             @if ($list->status == 1)
                 <a

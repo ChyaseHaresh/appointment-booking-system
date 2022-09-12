@@ -55,7 +55,7 @@
                         <th scope="col">Phone</th>
                         <th scope="col">Email</th>
                         <th scope="col">Date</th>
-                        <th scope="col">Time</th>
+                        <th scope="col">Time Slot</th>
                         <th scope="col">Action</th>
                     </tr>
                 </thead>
@@ -68,13 +68,7 @@
                             <td>{{ $list->email }}</td>
                             <td>{{ $list->date }}</td>
 
-                            <td>
-                                @php
-                                    $dato = new Carbon($list->time);
-                                    $ch_time = $dato->isoFormat('h:mm A');
-
-                                @endphp
-                                {{ $ch_time }}</td>
+                            <td>{{$list->time}}</td>
                             <td>
                                 @if ($list->status == 1)
                                     <a

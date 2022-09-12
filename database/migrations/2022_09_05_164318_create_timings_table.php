@@ -15,9 +15,12 @@ return new class extends Migration
     {
         Schema::create('timings', function (Blueprint $table) {
             $table->id();
-            $table->time('avlbl_time');
-            $table->date('avlbl_date');
-            $table->tinyInteger('status');
+            $table->integer('staff_id');
+            $table->date('sdate');
+            $table->time('stime');
+            $table->date('edate');
+            $table->time('etime');
+            $table->integer('status');
             $table->timestamps();
         });
     }

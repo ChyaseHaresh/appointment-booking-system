@@ -36,6 +36,7 @@
             @error('counselor')
                 {{ $message }}
             @enderror
+            <input type="hidden" name="counselor" value="{{$data[0]->counselor_assigned}}">
             <input type="hidden" name="email" value="{{ $data[0]->email }}">
             <input type="hidden" name="id" value="{{ $data[0]->id }}">
             <br>
