@@ -4,12 +4,12 @@
 @section('contents')
 
     @php
-    use Carbon\Carbon;
-    $date = Carbon::now('+5:45');
-    echo $date->isoFormat('YYYY-MM-DD');
-    $c_date = $date->isoFormat('YYYY-MM-DD');
-    $c_time = $date->isoFormat('H:mm');
-    $ch_time = $date->addHour()->isoFormat('H:mm');
+        use Carbon\Carbon;
+        $date = Carbon::now('+5:45');
+        echo $date->isoFormat('YYYY-MM-DD');
+        $c_date = $date->isoFormat('YYYY-MM-DD');
+        $c_time = $date->isoFormat('H:mm');
+        $ch_time = $date->addHour()->isoFormat('H:mm');
     @endphp
     <div class="row d-flex">
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
@@ -41,7 +41,8 @@
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">Start Date</label>
                         <input type="date" class="form-control sdate" id="exampleInputPassword1" name="sdate"
-                            min="{{ $c_date }}"max ="{{ Carbon::parse($c_date)->addDays(6)->isoFormat('YYYY-MM-DD') }}" value="{{ $c_date }}" required>
+                            min="{{ $c_date }}"max="{{ Carbon::parse($c_date)->addDays(6)->isoFormat('YYYY-MM-DD') }}"
+                            value="{{ $c_date }}" required>
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">Start time</label>
@@ -84,18 +85,24 @@
                         <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
                             <div class="d-flex justify-content-between">
                                 <strong class="text-gray-dark">{{ $list2->staff_id }}</strong>
+                                <div>
+                                    {{ $list2->sdate }}
+                                </div>
                                 <strong> {{ $list2->stime }} -
                                     {{ $list2->etime }}</strong>
                                 <div>
-                                    @if ($list2->status == 1)
-                                        <a
-                                            href="{{ url('admin/time_slots/status/') }}/{{ 0 }}/{{ $list2->id }}"><button
-                                                type="button" class="btn btn-success">Active</button></a>
-                                    @else
-                                        <a
-                                            href="{{ url('admin/time_slots/status/') }}/{{ 1 }}/{{ $list2->id }}"><button
-                                                type="button" class="btn btn-danger">Deactive</button></a>
-                                    @endif
+                                    {{-- @if (Carbon::parse($list2->date)->diffInDays(Carbon::now('+5:45')->isoFormat('YYYY-MM-DD')) < 0) --}}
+                                        @if ($list2->status == 1)
+                                            <a
+                                                href="{{ url('admin/time_slots/status/') }}/{{ 0 }}/{{ $list2->id }}"><button
+                                                    type="button" class="btn btn-success">Active</button></a>
+                                        @else
+                                            <a
+                                                href="{{ url('admin/time_slots/status/') }}/{{ 1 }}/{{ $list2->id }}"><button
+                                                    type="button" class="btn btn-danger">Deactive</button></a>
+                                        @endif
+                                    {{-- @endif --}}
+
                                 </div>
                             </div>
                             <span class="d-block">HR Manager</span>
@@ -108,4 +115,3 @@
 
 
     @endsection
-

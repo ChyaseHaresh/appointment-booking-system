@@ -45,7 +45,7 @@
                     <select class="form-select" aria-label="Default select example" id="select_counselor" name="name" required>
                         <option>Select the Counselor</option>
                         @foreach ($data2 as $list2)
-                            <option value="{{ $list2->id }}">{{ $list2->name }}</option>
+                            <option value="{{ $list2->id }}">{{ $list2->name }} ({{$list2->designation}})</option>
                         @endforeach
                     </select>
                 <div class="d-grid gap-2 d-md-block">
@@ -141,6 +141,7 @@
                             </div>
                             <input type="hidden" name="date" class="dates">
                             <input type="hidden" name="time" class="a_time">
+                            <input type="hidden" name="idss" class="idss">
                     </div>
                     {{-- <button type="submit" class="btn btn-primary">Place Appointment</button> --}}
 

@@ -11,15 +11,15 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous" />
-        <link rel="stylesheet" href="{{asset('css/validation.css')}}">
-        <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/validation.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
 
 </head>
 
 <body>
     <header class="navbar navbar-dark sticky-top bg-secondary flex-md-nowrap p-0 shadow">
         <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#"><i class="fa-sharp fa-solid fa-globe"></i>
-            Global Study</a>
+            Elscript Technology </a>
         <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse"
             data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false"
             aria-label="Toggle navigation">
@@ -38,7 +38,8 @@
                 <div class="position-sticky pt-3">
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="{{url('admin/dashboard')}}" style="color: white">
+                            <a class="nav-link active" aria-current="page" href="{{ url('admin/dashboard') }}"
+                                style="color: white">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                     stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"
@@ -50,7 +51,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{url('admin/appointments')}}">
+                            <a class="nav-link" href="{{ url('admin/appointments') }}">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                     stroke-linecap="round" stroke-linejoin="round" class="feather feather-file"
@@ -63,26 +64,29 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="{{url('admin/staff')}}">
+                            <a class="nav-link" href="{{ url('admin/staff') }}">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                    stroke-linecap="round" stroke-linejoin="round" class="feather feather-file"
-                                    aria-hidden="true">
-                                    <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
-                                    <polyline points="13 2 13 9 20 9"></polyline>
+                                    stroke-linecap="round" stroke-linejoin="round"
+                                    class="feather feather-users align-text-bottom" aria-hidden="true">
+                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="9" cy="7" r="4"></circle>
+                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
                                 </svg>
                                 Counselor
                             </a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="{{url('admin/time_slots')}}">
+                            <a class="nav-link" href="{{ url('admin/time_slots') }}">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                    stroke-linecap="round" stroke-linejoin="round" class="feather feather-file"
-                                    aria-hidden="true">
-                                    <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
-                                    <polyline points="13 2 13 9 20 9"></polyline>
+                                    stroke-linecap="round" stroke-linejoin="round"
+                                    class="feather feather-bar-chart-2 align-text-bottom" aria-hidden="true">
+                                    <line x1="18" y1="20" x2="18" y2="10"></line>
+                                    <line x1="12" y1="20" x2="12" y2="4"></line>
+                                    <line x1="6" y1="20" x2="6" y2="14"></line>
                                 </svg>
                                 Time Slots
                             </a>
@@ -119,17 +123,17 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"
         integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous">
     </script>
-    <script src="{{asset('js/validation.js')}}"></script>
+    <script src="{{ asset('js/validation.js') }}"></script>
 
     <script>
-        let selected_day=document.querySelector('#full_dates')
-        selected_day.addEventListener('change',()=>{
-            let full_date= selected_day.value
+        let selected_day = document.querySelector('#full_dates')
+        selected_day.addEventListener('change', () => {
+            let full_date = selected_day.value
             console.log(full_date)
-            if (full_date!=="") {
-                window.location=`{{url('admin/appointments/`+full_date+`')}}`
+            if (full_date !== "") {
+                window.location = `{{ url('admin/appointments/`+full_date+`') }}`
             } else {
-                window.location=`{{url('admin/appointments/')}}`
+                window.location = `{{ url('admin/appointments/') }}`
 
             }
         })

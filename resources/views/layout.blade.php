@@ -174,7 +174,7 @@
 
 
                 let a = '{{ url('/appointment/getDate') }}/' + counselor_id;
-                console.log(sdate);
+                console.log(counselor_id);
                 $.ajax({
 
                     url: '{{ url('/appointment/getDate') }}/' + counselor_id+'/'+sdate,
@@ -218,11 +218,12 @@
 
             location.href="/appointment/getDate/"+modal_date
         }
-        function myFunction(object) {
+        function myFunction(object, abcd) {
             let modal_date = document.querySelector('#modal_date');
             let modal_time = document.querySelector('#modal_time');
             let hidden_date = document.querySelector('.dates');
             let hidden_time = document.querySelector('.a_time');
+            let hidden_id = document.querySelector('.idss');
             let selected_date = document.querySelector('.date');
             var valuess = selected_date.options[selected_date.selectedIndex].value;
 
@@ -233,6 +234,7 @@
 
             hidden_date.setAttribute('value', valuess);
             hidden_time.setAttribute('value', selected_time);
+            hidden_id.setAttribute('value', abcd);
             console.log(selected_time)
         }
     </script>

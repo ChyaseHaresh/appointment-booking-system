@@ -56,6 +56,7 @@
                         <th scope="col">Email</th>
                         <th scope="col">Date</th>
                         <th scope="col">Time Slot</th>
+                        <th scope="col">Counselor</th>
                         <th scope="col">Action</th>
                     </tr>
                 </thead>
@@ -69,6 +70,7 @@
                             <td>{{ $list->date }}</td>
 
                             <td>{{$list->time}}</td>
+                            <td>{{$list->counselor_assigned}}</td>
                             <td>
                                 @if ($list->status == 1)
                                     <a
